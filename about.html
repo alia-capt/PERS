@@ -1,73 +1,413 @@
-<!-- about.html - Halaman About Simple -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - Pers Independen</title>
+    <title>Tentang Kami - Pers Independen Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --gold-primary: #C5A572;
+            --gold-light: #E5D5B5;
+            --gold-dark: #8B7355;
+            --maroon: #800020;
+            --navy: #1A2A3A;
+            --cream: #FAF7F2;
+            --charcoal: #2C2C2C;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; }
-        header {
-            background: #c0392b;
-            color: white;
-            padding: 20px;
-            text-align: center;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
         }
-        nav {
-            background: #2c3e50;
-            padding: 10px;
-            text-align: center;
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
         }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
+
         .container {
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 20px;
         }
-        .about-box {
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
+
+        .top-bar {
+            background: var(--charcoal);
+            color: var(--gold-light);
+            padding: 8px 0;
         }
-        footer {
-            background: #2c3e50;
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
+            font-size: 24px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            color: var(--gold-primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a.active {
+            color: var(--gold-primary);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--navy), #0F1A24);
+            color: white;
+            padding: 80px 0;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .page-header .gold-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            margin: 20px auto;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--gold-primary);
+        }
+
+        .about-content p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .values-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 40px;
+            background: var(--cream);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 32px;
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            padding: 80px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 5px solid var(--gold-primary);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .team-member .position {
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-menu {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>TENTANG KAMI</h1>
-    </header>
-    
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="#">POLITIK</a>
-        <a href="#">EKONOMI</a>
-        <a href="#">TEKNOLOGI</a>
-        <a href="about.html">ABOUT</a>
-        <a href="contact.html">KONTAK</a>
-    </nav>
-    
-    <div class="container">
-        <div class="about-box">
-            <h2 style="margin-bottom: 20px;">Pers Independen Indonesia</h2>
-            <p>Didirikan pada tahun 2024, Pers Independen Indonesia hadir sebagai media yang benar-benar independen, bebas dari tekanan politik dan bisnis.</p>
-            <p style="margin-top: 20px;">Visi kami: Menjadi rujukan utama masyarakat dalam mendapatkan informasi yang akurat dan terpercaya.</p>
-            <p style="margin-top: 20px;">Misi kami: Menyajikan berita dengan prinsip keberimbangan, mengedukasi masyarakat, dan mendorong transparansi.</p>
+    <div class="top-bar">
+        <div class="container">
+            <span>16 Februari 2024</span>
+            <span>Jakarta, Indonesia</span>
         </div>
     </div>
-    
-    <footer>
-        <p>&copy; 2024 Pers Independen Indonesia</p>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>PERS INDEPENDEN</h1>
+                    <span>INDONESIA</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">HOME</a>
+                <a href="#">POLITIK</a>
+                <a href="#">EKONOMI</a>
+                <a href="#">TEKNOLOGI</a>
+                <a href="about.html" class="active">ABOUT</a>
+                <a href="contact.html">KONTAK</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Tentang Kami</h1>
+            <div class="gold-line"></div>
+            <p>Mengenal lebih dekat Pers Independen Indonesia</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Sejarah Singkat</h2>
+                    <p>Pers Independen Indonesia didirikan pada tahun 2024 dengan visi menjadi media pers yang benar-benar independen, bebas dari tekanan politik dan kepentingan bisnis. Kami percaya bahwa masyarakat berhak mendapatkan informasi yang akurat, berimbang, dan terpercaya.</p>
+                    <p>Berawal dari keprihatinan terhadap kondisi media arus utama yang semakin terkonsentrasi dan kehilangan independensinya, kami memutuskan untuk mendirikan platform yang benar-benar berpihak pada kebenaran dan kepentingan publik.</p>
+                    <p>Hingga saat ini, kami telah memproduksi ribuan artikel berkualitas dan dipercaya oleh jutaan pembaca di seluruh Indonesia.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Redaksi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nilai-Nilai Kami</h2>
+                <div class="gold-line" style="margin: 20px auto;"></div>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Independen</h3>
+                    <p>Bebas dari tekanan politik, bisnis, dan kepentingan kelompok manapun</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3>Akurat</h3>
+                    <p>Mengedepankan verifikasi dan akurasi dalam setiap pemberitaan</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Berkeadilan</h3>
+                    <p>Memberikan ruang yang sama untuk semua pihak yang terkait</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tim Redaksi</h2>
+                <div class="gold-line" style="margin: 20px auto;"></div>
+                <p>Para profesional yang berdedikasi menyajikan berita terbaik</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Redaktur">
+                    </div>
+                    <h3>Budi Santoso</h3>
+                    <p class="position">Redaktur Pelaksana</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Redaktur">
+                    </div>
+                    <h3>Siti Aminah</h3>
+                    <p class="position">Redaktur Politik</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Redaktur">
+                    </div>
+                    <h3>Ahmad Fauzi</h3>
+                    <p class="position">Redaktur Ekonomi</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Redaktur">
+                    </div>
+                    <h3>Dewi Sartika</h3>
+                    <p class="position">Redaktur Teknologi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pers Independen Indonesia. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
