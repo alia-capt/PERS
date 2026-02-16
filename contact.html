@@ -1,0 +1,138 @@
+<!-- contact.html - Halaman Kontak Simple -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Pers Independen</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+        header {
+            background: #c0392b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #2c3e50;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .contact-box {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            background: #c0392b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .whatsapp-btn {
+            background: #25D366;
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KONTAK KAMI</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="#">POLITIK</a>
+        <a href="#">EKONOMI</a>
+        <a href="#">TEKNOLOGI</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">KONTAK</a>
+    </nav>
+    
+    <div class="container">
+        <div class="contact-box">
+            <h2 style="margin-bottom: 20px;">Hubungi Redaksi</h2>
+            
+            <div style="margin-bottom: 30px;">
+                <p><strong>Alamat:</strong> Jl. Merdeka No. 45, Jakarta</p>
+                <p><strong>Email:</strong> redaksi@pers.id</p>
+                <p><strong>Telepon:</strong> 021-1234-5678</p>
+            </div>
+            
+            <a href="https://wa.me/6281333412910" target="_blank" class="whatsapp-btn">
+                📱 Chat via WhatsApp
+            </a>
+            
+            <h3 style="margin: 30px 0 20px;">Atau kirim pesan:</h3>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Pesan</label>
+                    <textarea rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+            
+            <p style="margin-top: 20px; color: green;" id="response"></p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Pers Independen Indonesia</p>
+    </footer>
+    
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('response').innerHTML = '✅ Pesan terkirim! (Demo)';
+            this.reset();
+        });
+    </script>
+</body>
+</html>
